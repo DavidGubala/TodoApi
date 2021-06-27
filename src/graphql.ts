@@ -11,7 +11,7 @@ export interface Todo {
     id: string;
     title?: string;
     body?: string;
-    createdAt?: Date;
+    createdat?: Date;
 }
 
 export interface IQuery {
@@ -20,6 +20,6 @@ export interface IQuery {
 
 export interface IMutation {
     createTodo(title?: string, body?: string): Todo | Promise<Todo>;
-    updateTodo(id?: string, title?: string, body?: string): Todo | Promise<Todo>;
-    deleteTodo(id?: string): string | Promise<string>;
+    updateTodo(id: string, title?: string, body?: string): Todo | Promise<Todo>;
+    deleteTodo(id: string): string | Promise<string>;
 }

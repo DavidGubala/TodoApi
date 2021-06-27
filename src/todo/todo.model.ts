@@ -1,8 +1,15 @@
-import { Column, CreatedAt, Model, Table } from 'sequelize-typescript';
+import {
+  Column,
+  CreatedAt,
+  Model,
+  PrimaryKey,
+  Table,
+} from 'sequelize-typescript';
 
 @Table
 export class Todo extends Model {
-  @Column({ primaryKey: true })
+  @PrimaryKey
+  @Column({ primaryKey: true, allowNull: false })
   id: string;
 
   @Column
@@ -12,5 +19,5 @@ export class Todo extends Model {
   body: string;
 
   @CreatedAt
-  creationDate: Date;
+  createdat: Date;
 }

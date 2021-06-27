@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Todo } from './todo.model';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class TodoService {
@@ -9,12 +10,16 @@ export class TodoService {
     private todoModel: typeof Todo,
   ) {}
 
-  async findAll(): Promise<Todo[]> {
-    return this.todoModel.findAll();
+  async getAllTodos(): Promise<Todo[]> {
+    try {
+      return await this.todoModel.findAll();
+    } catch (err) {
+      return err;
+    }
   }
 
-  findOne(id: string): Promise<Todo> {
-    return this.todoModel.findOne({
+  async findOne(id: string): Promise<Todo> {
+    return await this.todoModel.findOne({
       where: {
         id,
       },
@@ -28,7 +33,8 @@ export class TodoService {
   }
 
   async createTodo(title: string, body: string): Promise<Todo> {
-    const todo = new Todo({
+    const todo = new this.todoModel({
+      id: uuidv4(),
       title: title,
       body: body,
     });

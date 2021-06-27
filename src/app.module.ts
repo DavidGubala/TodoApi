@@ -11,6 +11,9 @@ import { Todo } from './todo/todo.model';
 
 @Module({
   imports: [
+    // importing 'modules' into main app module
+    // modules are from NestJS
+    // Sequelize, GraphQL, and TodoModule(custom)
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: 'localhost',
@@ -18,6 +21,8 @@ import { Todo } from './todo/todo.model';
       username: 'postgres',
       password: 'root',
       database: 'todoapi',
+      autoLoadModels: true,
+      synchronize: true,
       models: [Todo],
     }),
     GraphQLModule.forRoot({

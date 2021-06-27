@@ -4,15 +4,15 @@ type Todo {
     id: ID!
     title: String
     body: String
-    createdAt: Date
+    createdat: Date
 }
 
 type Query {
-    todos: [Todo!]! #gets a list of all todos
+    todos: [Todo] #gets a list of all todos
 }
 
 type Mutation {
     createTodo(title: String, body: String): Todo
-    updateTodo(id: String, title: String, body: String): Todo
-    deleteTodo(id: String): String
+    updateTodo(id: ID!, title: String, body: String): Todo
+    deleteTodo(id: ID!): String
 }

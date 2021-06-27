@@ -7,19 +7,19 @@ export class TodoResolver {
 
   @Query('todos') //these have to take names from .graphql file
   async todos() {
-    return this.todoService.findAll();
+    return this.todoService.getAllTodos();
   }
 
   @Mutation('createTodo')
-  async createTodo(@Args('title, body') title: string, body: string) {
+  async createTodo(@Args('title') title: string, @Args('body') body: string) {
     return this.todoService.createTodo(title, body);
   }
 
   @Mutation('updateTodo')
   async updateTodo(
-    @Args('id, title, body') id: string,
-    title: string,
-    body: string,
+    @Args('id') id: string,
+    @Args('title') title: string,
+    @Args('body') body: string,
   ) {
     return this.todoService.updateTodo(id, title, body);
   }
