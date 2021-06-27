@@ -1,0 +1,18 @@
+scalar Date
+
+type Todo {
+    id: ID!
+    title: String
+    body: String
+    createdAt: Date
+}
+
+type Query {
+    todos: [Todo!]! #gets a list of all todos
+}
+
+type Mutation {
+    createTodo(title: String, body: String): Todo
+    updateTodo(id: String, title: String, body: String): Todo
+    deleteTodo(id: String): String
+}
