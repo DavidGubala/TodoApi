@@ -11,7 +11,8 @@ export interface Todo {
     id: string;
     title?: string;
     body?: string;
-    createdat?: Date;
+    createdAt?: Date;
+    updatedaAt?: Date;
 }
 
 export interface IQuery {

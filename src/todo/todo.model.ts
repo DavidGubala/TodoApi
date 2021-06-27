@@ -4,6 +4,7 @@ import {
   Model,
   PrimaryKey,
   Table,
+  UpdatedAt,
 } from 'sequelize-typescript';
 
 @Table
@@ -19,5 +20,8 @@ export class Todo extends Model {
   body: string;
 
   @CreatedAt
-  createdat: Date;
+  createdAt: Date;
+
+  @UpdatedAt
+  updatedAt: Date;
 }

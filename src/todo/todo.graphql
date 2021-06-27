@@ -4,7 +4,8 @@ type Todo {
     id: ID!
     title: String
     body: String
-    createdat: Date
+    createdAt: Date
+    updatedaAt: Date
 }
 
 type Query {
