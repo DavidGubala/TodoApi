@@ -1,6 +1,11 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoResolver } from './todo.resolver';
 
+/*
+  Here we run tests against the Resolver to see if the graphql endpoint
+  is set up properly to exchange data.
+*/
+
 describe('TodoResolver', () => {
   let resolver: TodoResolver;
 
