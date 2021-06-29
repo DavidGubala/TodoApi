@@ -1,5 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { TodoService } from './todo.service';
+import { Todo } from './todo.model';
 
 /*
   Here we run tests against the service to see if we are 
@@ -10,11 +11,7 @@ describe('TodoService', () => {
   let service: TodoService;
 
   beforeEach(async () => {
-    const module: TestingModule = await Test.createTestingModule({
-      providers: [TodoService],
-    }).compile();
-
-    service = module.get<TodoService>(TodoService);
+    service = new TodoService(Todo);
   });
 
   describe('GetAllTodos-Service', () => {
